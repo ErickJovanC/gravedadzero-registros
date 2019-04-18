@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+
+<body>
+
+<div style="border: 1px solid black;padding:10px;" name="formula">
+  First name: <input type="text" name="nombre"><br>
+  Last name: <input type="text">
+</div>
+
+<p>Click an input field to get focus. Click outside an input field to lose focus.</p>
+
+<script>
+$(document).ready(function(){
+  $("input").focusin(function(){
+    $(this).css("background-color", "#AA22CC");
+  });
+  $("input").focusout(function(){
+    $(this).css("background-color", "#FFAAFF");
+    var nombre = document.formula.nombre.value;
+   	alert(nombre);
+  });
+});
+function validar(){
+	var nombre = document.nombre.value;
+	alert("Nombre");
+}
+</script>
+
+</body>
+</html>
