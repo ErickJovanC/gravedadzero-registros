@@ -90,6 +90,7 @@
 							$sumaRecargas+=$registro->recargas;
 							$sumaRegistros+=$registro->registros;
 							$sumaGastos+=$registro->gastos;
+							//require("formModalModificarRegistro.php");
 					?>
 						<tr>
 							<td><?php echo $registro->fecha; ?></td>
@@ -104,9 +105,10 @@
 							<td><?php echo $registro->cajafinal; ?></td>
 							<td><?php echo $registro->entregado; ?></td>
 							<td><?php echo $registro->diferencia; ?></td>
-							<td><a href="<?php echo""; ?>"><button>Modificar</button></a></td>
+							<td><button class="btn btn-warning" data-toggle="modal" data-target="#modal<?php echo $registro->id; ?>">Modificar</button></td>
 						</tr>
 					<?php
+						require("formModalModificarRegistro.php");
 						endforeach; }
 					?>
 					</table>
