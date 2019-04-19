@@ -8,20 +8,27 @@
 	require ("head.php");
 ?>
 <div class="row">
-	<div class="col-12">
-		<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" class="form-inline">
+	<div class="col justify-content-center">
+		<?php
+			if(isset($_GET["update"])){
+			echo '<div class="alert alert-warning" role="alert">
+				 	¡Registro Actualizado!
+				</div>';
+			}
+		?>
+		<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" class="form-inline form-control-sm mb-2">
 			<div class="form-group">
 				<label for="sucursal">Sucursal</label>
-				<select name="sucursal" id="sucursal" class="form-control mx-3">
+				<select name="sucursal" id="sucursal" class="form-control-sm mx-2">
 					<option value="Arcos">Arcos</option>
 					<option value="Centro">Centro</option>
 					<option value="Santiago">Santiago</option>
 					<option value="San Jeronimo">San Jerónimo</option>
 				</select>
 			</div>
-			<div class="form-group ">
+			<div class="form-group">
 				<label for="mes">Mes</label>
-				<select name="mes" id="mes" class="form-control mx-3">
+				<select name="mes" id="mes" class="form-control-sm mx-2">
 					<!-- <option hidden>Mes</option> -->
 					<option value="01">Enero</option>
 					<option value="02">Febrero</option>
@@ -37,9 +44,9 @@
 					<option value="12">Diciembre</option>
 				</select>
 			</div>
-			<div class="form-group ">
+			<div class="form-group">
 				<label for="anio">Año</label>
-				<select name="anio" id="anio" class="form-control mx-3">
+				<select name="anio" id="anio" class="form-control-sm mx-2">
 					<option value="2019">2019</option>
 					<option value="2019">2020</option>
 					<option value="2019">2021</option>
@@ -47,10 +54,12 @@
 					<option value="2019">2023</option>
 				</select>
 			</div>
-			<input class="btn btn-primary mx-3" type="submit" name="mostrar" value="Mostrar">
+			<input class="btn btn-primary btn-sm mx-3" type="submit" name="mostrar" value="Mostrar">
 		</form>
 	</div>
-	<div class="col-12">
+</div>
+<div class="row">
+	<div class="col justify-content-center">
 		<?php
 			if(isset($_POST["mostrar"])){
 				$mes=$_POST["mes"];
@@ -105,7 +114,7 @@
 							<td><?php echo $registro->cajafinal; ?></td>
 							<td><?php echo $registro->entregado; ?></td>
 							<td><?php echo $registro->diferencia; ?></td>
-							<td><button class="btn btn-warning" data-toggle="modal" data-target="#modal<?php echo $registro->id; ?>">Modificar</button></td>
+							<td><button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal<?php echo $registro->id; ?>"><i class="fas fa-edit"></i> Modificar</button></td>
 						</tr>
 					<?php
 						require("formModalModificarRegistro.php");

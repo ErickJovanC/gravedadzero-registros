@@ -4,26 +4,53 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title">Modificar Registro</h5>
+						<h5 class="modal-title"><i class="fas fa-edit"></i> Modificar Registro</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div class="modal-body">
 
-						<form action="guardarRegistro.php" method="post">
+						<form action="actualizarRegistro.php" method="post">
 							<div class="form-row">
-								<div class="form-group col-md-4">
+								<div class="form-group col-md-6">
+									<input type="hidden" name="id" value="<?php echo $registro->id; ?>">
 									<label for="fecha">Fecha</label>
-									<input class="form-control" type="date" name="fecha" required autofocus>
+									<input class="form-control" type="date" name="fecha" value="<?php echo $registro->fecha?>" required autofocus>
 								</div>
+
+								<!-- INICIO Selección del la sucursal del valor obtneido de la BD -->
 								<div class="form-group col-md-4">
 									<label for="sucursal">Sucursal: </label>
-									<br><input type="radio" name="sucursal" value="Arcos" required> Arcos
-									<br><input type="radio" name="sucursal" value="Centro"> Centro
-									<br><input type="radio" name="sucursal" value="Santiago"> Santiago
-									<br><input type="radio" name="sucursal" value="San Jeronimo"> San Jerónimo
+									<?php
+										if ($registro->sucursal=="Arcos"){										
+											echo '<br><input type="radio" name="sucursal" value="Arcos" checked> Arcos
+											<br><input type="radio" name="sucursal" value="Centro"> Centro
+											<br><input type="radio" name="sucursal" value="Santiago"> Santiago
+											<br><input type="radio" name="sucursal" value="San Jeronimo"> San Jerónimo';
+										}
+										elseif ($registro->sucursal=="Centro"){										
+											echo '<br><input type="radio" name="sucursal" value="Arcos"> Arcos
+											<br><input type="radio" name="sucursal" value="Centro" checked> Centro
+											<br><input type="radio" name="sucursal" value="Santiago"> Santiago
+											<br><input type="radio" name="sucursal" value="San Jeronimo"> San Jerónimo';
+										}
+										elseif ($registro->sucursal=="Santiago"){										
+											echo '<br><input type="radio" name="sucursal" value="Arcos"> Arcos
+											<br><input type="radio" name="sucursal" value="Centro"> Centro
+											<br><input type="radio" name="sucursal" value="Santiago" checked> Santiago
+											<br><input type="radio" name="sucursal" value="San Jeronimo"> San Jerónimo';
+										}
+										elseif ($registro->sucursal=="San Jeronimo"){										
+											echo '<br><input type="radio" name="sucursal" value="Arcos"> Arcos
+											<br><input type="radio" name="sucursal" value="Centro"> Centro
+											<br><input type="radio" name="sucursal" value="Santiago"> Santiago
+											<br><input type="radio" name="sucursal" value="San Jeronimo" checked> San Jerónimo';
+										}
+									?>
 								</div>
+								<!-- FIN Selección del la sucursal del valor obtneido de la BD -->
+
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
@@ -67,13 +94,9 @@
 									<input class="form-control" type="text" name="diferencia" value="<?php echo $registro->diferencia; ?>">
 								</div>
 							</div>
-							<button class="btn btn-primary" type="submit">Guardar</button>
+							<button class="btn btn-warning" type="submit"><i class="fas fa-edit"></i> Modificar Registro</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-window-close"></i> Cancelar</button>
 						</form>
-
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
 					</div>
 				</div>
 			</div>
