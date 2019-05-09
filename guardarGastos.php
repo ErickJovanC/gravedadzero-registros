@@ -37,9 +37,10 @@
 			$sql="INSERT INTO gastos (sucursal, anio, mes, renta, internet, luz, personal, reinversion, otros) VALUES (:sucursal, :anio, :mes, :renta, :internet, :luz, :personal, :reinversion, :otros)";
 			$resultado=$this->conexion_db->prepare($sql);
 			$resultado->execute(array(":sucursal"=>$sucursal, ":anio"=>$anio, ":mes"=>$mes, ":renta"=>$renta, ":internet" =>$internet, ":luz"=>$luz, ":personal"=>$personal, ":reinversion"=>$reinversion, ":otros"=>$otros));
-			echo "Gastos Registrado";
+			//(echo "Gastos Registrado";
 		}
 	}
 	$conectar=new guardarGastos();
 	$conectar->setGuardarGastos();
+	header("Location: formGastos.php?exito");
 ?>

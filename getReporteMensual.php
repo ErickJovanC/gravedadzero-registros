@@ -16,5 +16,5 @@
 	$conectar=new reporteMensual();
 	/* Se debe obtener el valor de Mes y Año y concatenarlos para que realice la busqueda
 	de la fecha en el formato correcto 
-	$conectar->getReporteMensual($fecha, $sucursal);*/
+	$conectar->getReporteMensual($mes, $anio, $sucursal);*/
 ?>
