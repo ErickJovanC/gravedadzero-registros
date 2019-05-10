@@ -29,10 +29,13 @@
 							<a href="formRegistros.php" class="nav-link">Registro Diario</a>
 						</li>
 						<li class="nav-item">
+							<a href="formGastos.php" class="nav-link">Gastos</a>
+						</li>
+						<li class="nav-item">
 							<a href="formReporteMensual.php" class="nav-link">Reporte Mensual</a>
 						</li>
 						<li class="nav-item">
-							<a href="formGastos.php" class="nav-link">Gastos</a>
+							<a href="formReporteFinanciero.php" class="nav-link">Reporte Financiero</a>
 						</li>
 						<li class="nav-item">
 							<a href="cerrarSession.php" class="nav-link">Cerrar Sessión</a>

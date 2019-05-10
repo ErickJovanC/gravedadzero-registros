@@ -3,6 +3,9 @@
 	if(!isset($_SESSION["identificado"])){
 		header("Location: index.php");
 	}
+	elseif($_SESSION["tipo"]!="admin"){
+		header("Location: formRegistros.php");
+	}
 	$titulo = "Registro de Gastos - ";
 	$icono = '<i class="fas fa-dollar-sign"></i>';
 	include("head.php");	
