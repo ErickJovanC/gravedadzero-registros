@@ -110,9 +110,11 @@
 				<td><?php echo $registro->entregado; ?></td>
 				<td><?php echo $registro->diferencia; ?></td>
 				<td><button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal<?php echo $registro->id; ?>"><i class="fas fa-edit"></i> Modificar</button></td>
+				<td><button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#eliminar<?php echo $registro->id; ?>">Eliminar</button></td>
 			</tr>
 		<?php
 			require("formModalModificarRegistro.php");
+			require("modalEliminarRegistro.php");
 			endforeach;
 		?>
 		</table>
